@@ -1,5 +1,6 @@
+import { useSetPageTitle } from "@/hooks/useSetPageTitle";
+
 export function HomePage() {
-  return (
-    <>Home</>
-  )
+  useSetPageTitle("Home");
+  return <>Home</>;
 }

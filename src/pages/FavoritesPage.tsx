@@ -1,5 +1,6 @@
+import { useSetPageTitle } from "@/hooks/useSetPageTitle";
+
 export function FavoritesPage() {
-  return (
-    <>Favorites</>
-  )
+  useSetPageTitle("Favorites");
+  return <>Favorites</>;
 }
