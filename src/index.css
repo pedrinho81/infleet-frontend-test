@@ -22,3 +22,82 @@ body {
   font-size: 100%;
   list-style-type: none;
 }
+
+/* Background for dark space with stars */
+.stars {
+  background: radial-gradient(
+    circle,
+    rgba(0, 0, 0, 1) 80%,
+    rgba(28, 28, 37, 1) 100%
+  );
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  z-index: -1;
+}
+
+.stars::before,
+.stars::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 200%; /* Larger than viewport for smooth motion */
+  height: 200%;
+  background: transparent;
+  z-index: 1;
+}
+
+/* First star layer */
+.stars::before {
+  background: radial-gradient(circle, white 1%, transparent 2%);
+  background-size: 75px 75px; /* Adjust star density */
+  opacity: 0.4; /* Dimmer effect */
+  animation: drift 20s linear infinite; /* Smoother, slower movement */
+}
+
+/* Second star layer */
+.stars::after {
+  background: radial-gradient(circle, white 1%, transparent 2%);
+  background-size: 120px 120px; /* Larger spread for variation */
+  opacity: 0.2; /* Even dimmer effect */
+  animation: drift-reverse 35s linear infinite; /* Reverse direction for parallax */
+}
+
+/* Slow and smooth drifting motion */
+@keyframes drift {
+  from {
+    transform: translate3d(-25px, -25px, 0);
+  }
+  to {
+    transform: translate3d(25px, 25px, 0); /* Subtle movement */
+  }
+}
+
+/* Reverse drift for parallax effect */
+@keyframes drift-reverse {
+  from {
+    transform: translate3d(25px, 25px, 0);
+  }
+  to {
+    transform: translate3d(-25px, -25px, 0);
+  }
+}
+
+/* Glowing logo effect */
+.neonGlow {
+  animation: neon 2s alternate infinite;
+}
+
+@keyframes neon {
+  0% {
+    filter: drop-shadow(0 0 2px #ff9) drop-shadow(0 0 4px #ffa)
+      drop-shadow(0 0 8px #ffa);
+  }
+  100% {
+    filter: drop-shadow(0 0 8px #ff6) drop-shadow(0 0 16px #ffa)
+      drop-shadow(0 0 24px #ffa);
+  }
+}
+
