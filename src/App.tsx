@@ -1,3 +1,10 @@
+import { Layout } from "@/components/Layout";
+import { Routes } from "@/routes.tsx";
+
 export function App() {
-  return <></>;
+  return (
+    <Layout>
+      <Routes />
+    </Layout>
+  );
 }
