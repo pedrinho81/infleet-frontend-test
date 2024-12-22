@@ -1,11 +1,14 @@
-import { FavoritesProvider } from "@/providers/FavoritesContext";
+import { FavoritesProvider } from "@/contexts/FavoritesContext";
 import "../index.css";
 import { PropsWithChildren, StrictMode } from "react";
+import { FilterProvider } from "@/contexts/FilterContext";
 
 export function Providers({ children }: PropsWithChildren) {
   return (
     <StrictMode>
-      <FavoritesProvider>{children}</FavoritesProvider>
+      <FilterProvider>
+        <FavoritesProvider>{children}</FavoritesProvider>
+      </FilterProvider>
     </StrictMode>
   );
 }

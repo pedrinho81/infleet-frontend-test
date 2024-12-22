@@ -1,6 +1,6 @@
 export function Loading() {
   return (
-    <div className="flex flex-col items-center justify-center h-[50vh] bg-transparent">
+    <div className="flex flex-col items-center justify-center h-[70vh] bg-transparent">
       <div className="relative flex items-center space-x-4">
         <div className="relative w-2 h-16 bg-sithRed rounded animate-pulse">
           <div className="absolute inset-0 h-full w-full blur-lg bg-sithRed opacity-50"></div>
@@ -17,4 +17,4 @@ export function Loading() {
       </p>
     </div>
   );
-};
+}
