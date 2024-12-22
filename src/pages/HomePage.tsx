@@ -4,7 +4,7 @@ import { GenderEnum } from "@/@types/enums";
 import { Pagination } from "@/components/Filters/Pagination";
 import { Loading } from "@/components/Loading";
 
-import { CharactersList } from "@/features/characters/List";
+import { CharactersList } from "@/features/characters/components/List";
 import { useSetPageTitle } from "@/hooks/useSetPageTitle";
 import { FavoritesLink } from "@/components/FavoritesLink";
 

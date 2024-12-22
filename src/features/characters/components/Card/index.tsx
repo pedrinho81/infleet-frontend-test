@@ -1,5 +1,5 @@
 import { ICharacter } from "@/@types/Character";
-import { ToggleFavoriteButton } from "@/features/characters/ToggleFavoriteButton";
+import { ToggleFavoriteButton } from "@/features/characters/components/ToggleFavoriteButton";
 
 interface CardProps {
   character: ICharacter;
@@ -7,7 +7,7 @@ interface CardProps {
 
 export function Card({ character }: CardProps) {
   return (
-    <div className="bg-darkSpace border border-gray-700 rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow duration-300 flex flex-col items-center">
+    <div className="bg-darkSpace border border-gray-700 rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow duration-300 flex flex-col items-center h-48">
       <div className="text-center space-y-2">
         <h2 className="text-2xl font-bold text-white">{character.name}</h2>
         <p className="text-gray-400 text-sm capitalize">
@@ -18,7 +18,7 @@ export function Card({ character }: CardProps) {
         </p>
       </div>
 
-      <ToggleFavoriteButton />
+      <ToggleFavoriteButton character={character} />
     </div>
   );
 }
