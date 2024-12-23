@@ -26,6 +26,8 @@ export const useCharacters = () => {
   }, []);
 
   const { debouncedSearch, sortByName, sortByGender } = useFilter();
+  const [currentPage, setCurrentPage] = useState(1);
+  const itemsPerPage = 5;
 
   const filteredCharacters = useMemo(() => {
     return filterCharacters(characters, {
@@ -35,8 +37,19 @@ export const useCharacters = () => {
     });
   }, [debouncedSearch, sortByName, sortByGender]);
 
+  const totalItems = filteredCharacters.length;
+
+  const paginatedCharacters = useMemo(() => {
+    const startIndex = (currentPage - 1) * itemsPerPage;
+    return filteredCharacters.slice(startIndex, startIndex + itemsPerPage);
+  }, [filteredCharacters, currentPage]);
+
   return {
-    characters: filteredCharacters,
+    characters: paginatedCharacters,
     isLoading,
+    totalItems,
+    currentPage,
+    itemsPerPage,
+    setCurrentPage,
   };
 };

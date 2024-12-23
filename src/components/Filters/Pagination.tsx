@@ -1,46 +1,65 @@
-export function Pagination() {
+interface PaginationProps {
+  totalItems: number;
+  itemsPerPage: number;
+  currentPage: number;
+  onPageChange: (page: number) => void;
+}
+
+export function Pagination({
+  totalItems,
+  itemsPerPage,
+  currentPage,
+  onPageChange,
+}: PaginationProps) {
+  const totalPages = Math.ceil(totalItems / itemsPerPage);
+
+  const handlePrev = () => {
+    if (currentPage > 1) onPageChange(currentPage - 1);
+  };
+
+  const handleNext = () => {
+    if (currentPage < totalPages) onPageChange(currentPage + 1);
+  };
+
   return (
     <nav aria-label="Page navigation">
       <ul className="list-style-none flex pb-4">
         <li>
-          <a className="pointer-events-none relative block rounded bg-transparent px-3 py-1.5 text-sm text-neutral-500 transition-all duration-300 dark:text-neutral-400">
+          <button
+            onClick={handlePrev}
+            disabled={currentPage === 1}
+            className={`relative block rounded px-3 py-1.5 text-sm transition-all duration-300 
+              ${currentPage === 1 ? "text-neutral-500 pointer-events-none" : "text-neutral-600 hover:bg-neutral-100 dark:text-white dark:hover:bg-neutral-700"}`}
+          >
             Prev
-          </a>
+          </button>
         </li>
+        {Array.from({ length: totalPages }).map((_, index) => {
+          const page = index + 1;
+          return (
+            <li key={page}>
+              <button
+                onClick={() => onPageChange(page)}
+                className={`relative block rounded px-3 py-1.5 text-sm transition-all duration-300
+                  ${currentPage === page
+                    ? "bg-primary-100 font-medium text-droidGold"
+                    : "text-neutral-600 hover:bg-neutral-100 dark:text-white dark:hover:bg-neutral-700"
+                  }`}
+              >
+                {page}
+              </button>
+            </li>
+          );
+        })}
         <li>
-          <a
-            className="relative block rounded bg-transparent px-3 py-1.5 text-sm text-neutral-600 transition-all duration-300 hover:bg-neutral-100  dark:text-white dark:hover:bg-neutral-700 dark:hover:text-white"
-            href="#!"
-          >
-            1
-          </a>
-        </li>
-        <li aria-current="page">
-          <a
-            className="relative block rounded bg-primary-100 px-3 py-1.5 text-sm font-medium text-droidGold transition-all duration-300"
-            href="#!"
-          >
-            2
-            <span className="absolute -m-px h-px w-px overflow-hidden whitespace-nowrap border-0 p-0 [clip:rect(0,0,0,0)]">
-              (current)
-            </span>
-          </a>
-        </li>
-        <li>
-          <a
-            className="relative block rounded bg-transparent px-3 py-1.5 text-sm text-neutral-600 transition-all duration-300 hover:bg-neutral-100 dark:text-white dark:hover:bg-neutral-700 dark:hover:text-white"
-            href="#!"
-          >
-            3
-          </a>
-        </li>
-        <li>
-          <a
-            className="relative block rounded bg-transparent px-3 py-1.5 text-sm text-neutral-600 transition-all duration-300 hover:bg-neutral-100 dark:text-white dark:hover:bg-neutral-700 dark:hover:text-white"
-            href="#!"
+          <button
+            onClick={handleNext}
+            disabled={currentPage === totalPages}
+            className={`relative block rounded px-3 py-1.5 text-sm transition-all duration-300 
+              ${currentPage === totalPages ? "text-neutral-500 pointer-events-none" : "text-neutral-600 hover:bg-neutral-100 dark:text-white dark:hover:bg-neutral-700"}`}
           >
             Next
-          </a>
+          </button>
         </li>
       </ul>
     </nav>

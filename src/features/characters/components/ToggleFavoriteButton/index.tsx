@@ -1,5 +1,5 @@
 import { ICharacter } from "@/@types/Character";
-import { useFavorites } from "@/features/characters/hooks/useFavorites";
+import { useFavorites } from "@/features/characters/hooks/useFavoritesCharacters";
 
 interface TogglFavoriteButton {
   character: ICharacter

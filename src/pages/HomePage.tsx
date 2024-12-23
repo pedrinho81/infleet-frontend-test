@@ -9,8 +9,8 @@ import { useCharacters } from "@/features/characters/hooks/useCharacters";
 export function HomePage() {
   useSetPageTitle("Home");
 
-  const { characters, isLoading } = useCharacters();
-
+  const { characters, isLoading, totalItems, currentPage, itemsPerPage, setCurrentPage } =
+  useCharacters();
   if (isLoading) {
     return <Loading />;
   }
@@ -18,7 +18,12 @@ export function HomePage() {
     <>
       <FavoritesLink />
       <CharactersList characters={characters} />
-      {!!characters.length && <Pagination />}
+      {!!characters.length &&  <Pagination
+        totalItems={totalItems}
+        itemsPerPage={itemsPerPage}
+        currentPage={currentPage}
+        onPageChange={setCurrentPage}
+      />}
     </>
   );
 }
