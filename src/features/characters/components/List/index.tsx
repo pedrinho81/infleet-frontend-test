@@ -8,7 +8,7 @@ interface CharactersListProps {
 export function CharactersList({ characters }: CharactersListProps) {
   if (!characters || characters.length === 0) {
     return (
-      <div className="text-center text-droidGold min-h-[50vh] pt-10 underline uppercase">
+      <div className="text-center text-droidGold min-h-64 md:min-h-[55.4vh] pt-10 underline uppercase">
         No characters found.
       </div>
     );
