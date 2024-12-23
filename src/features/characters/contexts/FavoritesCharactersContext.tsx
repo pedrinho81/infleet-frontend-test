@@ -32,9 +32,9 @@ export const FavoritesProvider: React.FC<{ children: React.ReactNode }> = ({
   };
 
   const toggleFavorite = (character: ICharacter) => {
-    const isFavorite = favorites.some((fav) => fav.name === character.name);
+    const isFavorite = favorites.some((fav) => fav.id === character.id);
     const updatedFavorites = isFavorite
-      ? favorites.filter((fav) => fav.name !== character.name)
+      ? favorites.filter((fav) => fav.id !== character.id)
       : [...favorites, character];
 
     setFavorites(updatedFavorites);
@@ -42,7 +42,7 @@ export const FavoritesProvider: React.FC<{ children: React.ReactNode }> = ({
   };
 
   const isFavorite = (character: ICharacter) =>
-    favorites.some((fav) => fav.name === character.name);
+    favorites.some((fav) => fav.id === character.id);
 
   const { debouncedSearch, status, gender } = useFilter();
 
