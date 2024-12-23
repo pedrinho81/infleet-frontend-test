@@ -7,7 +7,7 @@ export function ResetFiltersButton() {
     <>
       {hasSomeFilter && (
         <button
-          className="p-1 rounded-lg bg-red-600 text-galacticWhite w-28 mt-full h-9"
+          className="p-1 rounded-lg bg-red-600 hover:animate-pulse text-galacticWhite w-28 mt-full h-9"
           onClick={handleResetFilters}
         >
           Reset filters
