@@ -5,7 +5,7 @@ export function Logo() {
     <Link href="/">
       <img
         className="w-56 h-20 bg-none relative z-10 neonGlow"
-        alt="star-wars-logo"
+        alt="rick-and-morty-logo"
         src={"/logo.png"}
       />
       ;
