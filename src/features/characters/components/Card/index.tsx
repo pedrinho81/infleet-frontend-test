@@ -19,7 +19,7 @@ export function Card({ character }: CardProps) {
   }
 
   return (
-    <div className="bg-darkSpace border border-gray-700 rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow duration-300 flex flex-col items-center min-h-[400px]">
+    <div className="bg-darkSpace border border-gray-700 rounded-lg shadow-md p-6 hover:shadow-lg duration-300 flex flex-col items-center min-h-[400px] transition-transform ease-in-out delay-50 hover:-translate-y-1 hover:scale-105">
       <img
         src={character.image}
         alt={character.name + " image"}
