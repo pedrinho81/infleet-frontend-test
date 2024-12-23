@@ -11,10 +11,10 @@ export enum CharactersSortByGenderEnum {
   FEMALE = "female",
 }
 
-interface FilterContextProps {
+export interface FilterContextProps {
   debouncedSearch: string;
   setSearch: (value: string) => void;
-  sortByName: CharactersSortByNameEnum;
+  sortByName: CharactersSortByNameEnum | null;
   setSortByName: (value: CharactersSortByNameEnum) => void;
   sortByGender: CharactersSortByGenderEnum | null;
   setSortByGender: (value: CharactersSortByGenderEnum | null) => void;
@@ -27,8 +27,8 @@ export const FilterContext = createContext<FilterContextProps | undefined>(
 export const FilterProvider = ({ children }: { children: ReactNode }) => {
   const [search, setSearch] = useState<string>("");
   const [debouncedSearch, setDebouncedSearch] = useState<string>("");
-  const [sortByName, setSortByName] = useState<CharactersSortByNameEnum>(
-    CharactersSortByNameEnum.ASC
+  const [sortByName, setSortByName] = useState<CharactersSortByNameEnum | null>(
+    null
   );
   const [sortByGender, setSortByGender] =
     useState<CharactersSortByGenderEnum | null>(null);

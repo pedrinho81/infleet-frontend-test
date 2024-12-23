@@ -1,14 +1,12 @@
 import { ICharacter } from "@/@types/Character";
-import {
-  CharactersSortByNameEnum,
-  CharactersSortByGenderEnum,
-} from "@/features/characters/contexts/FilterContext";
+import { FilterContextProps } from "@/features/characters/contexts/FilterContext";
 
-interface FilterOptions {
+export type FilterOptions = Omit<
+  FilterContextProps,
+  "setSearch" | "setSortByName" | "setSortByGender" | "debouncedSearch"
+> & {
   search: string;
-  sortByName: CharactersSortByNameEnum;
-  sortByGender: CharactersSortByGenderEnum | null;
-}
+};
 
 export const filterCharacters = (
   characters: ICharacter[],
@@ -23,7 +21,9 @@ export const filterCharacters = (
   }
 
   if (sortByGender) {
-    filtered = filtered.filter((character) => character.gender === sortByGender);
+    filtered = filtered.filter(
+      (character) => character.gender === sortByGender
+    );
   }
 
   if (sortByName === "asc") {

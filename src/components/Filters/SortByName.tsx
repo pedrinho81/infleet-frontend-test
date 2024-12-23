@@ -17,12 +17,17 @@ export function FilterByName() {
         onChange={({ target }) =>
           setSortByName(target.value as CharactersSortByNameEnum)
         }
-        defaultValue={CharactersSortByNameEnum.ASC}
+        defaultValue={""}
       >
+        <option
+          disabled={!sortByName}
+          value=""
+          className={sortByName ? "text-inherit" : "text-gray-400"}
+        >
+          {sortByName ? "None" : "Select"}
+        </option>{" "}
         <option value={CharactersSortByNameEnum.ASC}>A-Z</option>
-        {sortByName && (
-          <option value={CharactersSortByNameEnum.DESC}>Z-A</option>
-        )}
+        <option value={CharactersSortByNameEnum.DESC}>Z-A</option>
       </select>
     </div>
   );
