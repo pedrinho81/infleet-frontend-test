@@ -1,4 +1,4 @@
-import { FavoritesProvider } from "@/features/characters/contexts/FavoritesContext";
+import { FavoritesProvider } from "@/features/characters/contexts/FavoritesCharactersContext";
 import "../index.css";
 import { PropsWithChildren, StrictMode } from "react";
 import { FilterProvider } from "@/features/characters/contexts/FilterContext";
