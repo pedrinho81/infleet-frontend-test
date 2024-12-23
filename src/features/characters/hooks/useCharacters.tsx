@@ -1,55 +1,38 @@
-//TODO:: Make api call (who will be in another folder) and return loading and errors states
-
-import { ICharacter } from "@/@types/Character";
+import {
+  CharactersQueryData,
+  CharactersQueryVariables,
+  PageInfo,
+} from "@/@types/Character";
+import { GET_CHARACTERS } from "@/features/characters/graphql";
 import { useFilter } from "@/features/characters/hooks/useFilter";
-import { filterCharacters } from "@/features/characters/utils/filterCharacters";
-import { useEffect, useMemo, useState } from "react";
-
-const characters: ICharacter[] = [
-  { name: "Luke Skywalker", gender: "male", birthYear: "19BBY" },
-  { name: "Leia Organa", gender: "female", birthYear: "19BBY" },
-  { name: "Han Solo", gender: "male", birthYear: "29BBY" },
-  { name: "Darth Vader", gender: "male", birthYear: "41.9BBY" },
-  { name: "Obi-Wan Kenobi", gender: "male", birthYear: "57BBY" },
-  { name: "Yoda", gender: "male", birthYear: "896BBY" },
-  { name: "Padmé Amidala", gender: "female", birthYear: "46BBY" },
-  { name: "Anakin Skywalker", gender: "male", birthYear: "41.9BBY" },
-  { name: "Kylo Ren", gender: "male", birthYear: "5ABY" },
-  { name: "Rey", gender: "female", birthYear: "15ABY" },
-];
+import { useQuery } from "@apollo/client";
 
 export const useCharacters = () => {
-  const [isLoading, setIsLoading] = useState(true); //TODO REMOVE MOCK LOADING AND INTEGRATE THE REAL ONE
+  const { debouncedSearch, status, gender, page } = useFilter();
+  const { data, loading, error } = useQuery<
+    CharactersQueryData,
+    CharactersQueryVariables
+  >(GET_CHARACTERS, {
+    variables: {
+      name: debouncedSearch,
+      gender,
+      status,
+      page,
+    },
+  });
 
-  useEffect(() => {
-    setTimeout(() => setIsLoading(false), 2000);
-  }, []);
-
-  const { debouncedSearch, sortByName, sortByGender } = useFilter();
-  const [currentPage, setCurrentPage] = useState(1);
-  const itemsPerPage = 5;
-
-  const filteredCharacters = useMemo(() => {
-    return filterCharacters(characters, {
-      search: debouncedSearch,
-      sortByName,
-      sortByGender,
-    });
-  }, [debouncedSearch, sortByName, sortByGender]);
-
-  const totalItems = filteredCharacters.length;
-
-  const paginatedCharacters = useMemo(() => {
-    const startIndex = (currentPage - 1) * itemsPerPage;
-    return filteredCharacters.slice(startIndex, startIndex + itemsPerPage);
-  }, [filteredCharacters, currentPage]);
+  const characters = data?.characters?.results;
+  const pageInfo: PageInfo = {
+    count: data?.characters.info.count,
+    pages: data?.characters.info.pages,
+    prev: data?.characters.info.prev,
+    next: data?.characters.info.next,
+  };
 
   return {
-    characters: paginatedCharacters,
-    isLoading,
-    totalItems,
-    currentPage,
-    itemsPerPage,
-    setCurrentPage,
+    characters,
+    loading,
+    error,
+    pageInfo,
   };
 };

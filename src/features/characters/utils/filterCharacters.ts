@@ -1,35 +1,29 @@
 import { ICharacter } from "@/@types/Character";
 import { FilterContextProps } from "@/features/characters/contexts/FilterContext";
 
-export type FilterOptions = Omit<
+export type FilterOptions = Pick<
   FilterContextProps,
-  "setSearch" | "setSortByName" | "setSortByGender" | "debouncedSearch"
-> & {
-  search: string;
-};
-
+  "debouncedSearch" | "gender" | "status"
+>;
 export const filterCharacters = (
   characters: ICharacter[],
-  { search, sortByName, sortByGender }: FilterOptions
+  { debouncedSearch, status, gender }: FilterOptions
 ): ICharacter[] => {
   let filtered = characters;
 
-  if (search) {
+  if (debouncedSearch) {
     filtered = filtered.filter((character) =>
-      character.name.toLowerCase().includes(search.toLowerCase())
+      character.name.toLowerCase().includes(debouncedSearch.toLowerCase())
     );
   }
 
-  if (sortByGender) {
-    filtered = filtered.filter(
-      (character) => character.gender === sortByGender
-    );
+  if (gender) {
+    filtered = filtered.filter((character) => character.gender === gender);
   }
 
-  if (sortByName === "asc") {
-    filtered = [...filtered].sort((a, b) => a.name.localeCompare(b.name));
-  } else if (sortByName === "desc") {
-    filtered = [...filtered].sort((a, b) => b.name.localeCompare(a.name));
+  console.log(status);
+  if (status) {
+    filtered = filtered.filter((character) => character.status === status);
   }
 
   return filtered;

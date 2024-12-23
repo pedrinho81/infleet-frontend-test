@@ -6,19 +6,56 @@ interface CardProps {
 }
 
 export function Card({ character }: CardProps) {
+  enum StatusStylesEnum {
+    Alive = "bg-green-500 text-white",
+    Dead = "bg-gray-500 text-white",
+    unknown = "bg-yellow-500 text-white",
+  }
+
+  enum GenderStylesEnum {
+    Male = "text-blue-500",
+    Female = "text-pink-500",
+    unknown = "text-gray-500",
+  }
+
   return (
-    <div className="bg-darkSpace border border-gray-700 rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow duration-300 flex flex-col items-center h-48">
-      <div className="text-center space-y-2">
-        <h2 className="text-2xl font-bold text-white">{character.name}</h2>
-        <p className="text-gray-400 text-sm capitalize">
-          Gender: {character.gender}
+    <div className="bg-darkSpace border border-gray-700 rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow duration-300 flex flex-col items-center min-h-[400px]">
+      <img
+        src={character.image}
+        alt={character.name + " image"}
+        className="rounded-full w-40 h-40 mx-auto"
+      />
+      <ToggleFavoriteButton character={character} />
+
+      <h2 className="text-2xl font-bold  text-center text-white">
+        {character.name}
+      </h2>
+      <div className="flex justify-between items-center mt-auto w-full">
+        <p className="text-gray-400">
+          Gender: {" "}
+          <span
+            className={`text-sm capitalize ${
+              GenderStylesEnum[
+                character.gender as keyof typeof GenderStylesEnum
+              ]
+            }`}
+          >
+            {character.gender}
+          </span>
         </p>
-        <p className="text-gray-400 text-sm">
-          Birth Year: {character.birthYear}
+        <p className="text-gray-400">
+          Life status:{" "}
+          <span
+            className={`text-sm capitalize rounded-lg p-1 ${
+              StatusStylesEnum[
+                character.status as keyof typeof StatusStylesEnum
+              ]
+            }`}
+          >
+            {character.status}
+          </span>
         </p>
       </div>
-
-      <ToggleFavoriteButton character={character} />
     </div>
   );
 }

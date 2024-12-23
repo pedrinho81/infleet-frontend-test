@@ -44,15 +44,15 @@ export const FavoritesProvider: React.FC<{ children: React.ReactNode }> = ({
   const isFavorite = (character: ICharacter) =>
     favorites.some((fav) => fav.name === character.name);
 
-  const { debouncedSearch, sortByName, sortByGender } = useFilter();
+  const { debouncedSearch, status, gender } = useFilter();
 
   const filteredFavorites = useMemo(() => {
     return filterCharacters(favorites, {
-      search: debouncedSearch,
-      sortByName,
-      sortByGender,
+      debouncedSearch,
+      status,
+      gender,
     });
-  }, [debouncedSearch, sortByName, sortByGender, favorites]);
+  }, [debouncedSearch, status, gender, favorites]);
 
   return (
     <FavoritesContext.Provider
