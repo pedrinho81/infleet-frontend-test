@@ -16,7 +16,7 @@ export function Search() {
         value={search}
         id="first_name"
         className="mt-1 bg-gray-50 border border-gray-300 w-60 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2"
-        placeholder="Luke Skywalker"
+        placeholder="Rick"
         required
       />
     </div>

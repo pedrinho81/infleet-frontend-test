@@ -25,7 +25,7 @@ export function FilterByStatus() {
           value=""
           className={status ? "text-inherit" : "text-gray-400"}
         >
-          {status ? "None" : "Select"}
+          {status ? "All" : "Select"}
         </option>{" "}
         <option value={CharactersStatusEnum.ALIVE}>Alive</option>
         <option value={CharactersStatusEnum.DEAD}>Dead</option>
