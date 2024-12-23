@@ -2,7 +2,7 @@ import { ICharacter } from "@/@types/Character";
 import {
   CharactersSortByNameEnum,
   CharactersSortByGenderEnum,
-} from "@/contexts/FilterContext";
+} from "@/features/characters/contexts/FilterContext";
 
 interface FilterOptions {
   search: string;

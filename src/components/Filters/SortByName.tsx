@@ -1,4 +1,4 @@
-import { CharactersSortByNameEnum } from "@/contexts/FilterContext";
+import { CharactersSortByNameEnum } from "@/features/characters/contexts/FilterContext";
 import { useFilter } from "@/features/characters/hooks/useFilter";
 
 export function FilterByName() {

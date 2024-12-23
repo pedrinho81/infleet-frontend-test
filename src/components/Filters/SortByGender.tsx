@@ -1,4 +1,4 @@
-import { CharactersSortByGenderEnum } from "@/contexts/FilterContext";
+import { CharactersSortByGenderEnum } from "@/features/characters/contexts/FilterContext";
 import { useFilter } from "@/features/characters/hooks/useFilter";
 
 export function FilterByGender() {
