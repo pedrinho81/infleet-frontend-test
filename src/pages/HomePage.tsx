@@ -16,8 +16,7 @@ export function HomePage() {
   if (loading) {
     return <Loading />;
   }
-  console.log(page);
-  console.log(pageInfo);
+
   return (
     <>
       <FavoritesLink />

@@ -21,7 +21,6 @@ export const filterCharacters = (
     filtered = filtered.filter((character) => character.gender === gender);
   }
 
-  console.log(status);
   if (status) {
     filtered = filtered.filter((character) => character.status === status);
   }
