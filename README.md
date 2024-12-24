@@ -28,12 +28,10 @@ Run the development server:
 To run the tests with UI:
 
     $ npm run test:ui
-    (this will open the interface in a new page)
 
 Or run the tests in the terminal:
 
     $ npm run test
-    (this will run the tests in the terminal)
 
 
 ## 🛠️ Technologies Used
@@ -64,7 +62,7 @@ This project uses the [Rick and Morty GraphQL API](https://rickandmortyapi.com/g
 
 ### Character Listing
 - [X] Implement pagination for the character list.
-- [X] Fetch data using the public API [(I used the Rick and Morty API)](https://rickandmortyapi.com/graphql).
+- [X] Fetch data using the public API.
 
 ### Favorites Management
 - [X] Allow saving characters as favorites.
