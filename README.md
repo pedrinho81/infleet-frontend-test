@@ -1,50 +1,68 @@
-# React + TypeScript + Vite
+# 🚀 Infleet Front end challenge
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Bem-vindo! Este repositório contém minha solução para o Desafio Frontend.
+![Protótipo](/public/screenshot.png)
 
-Currently, two official plugins are available:
+## 🖥️ Instalação  
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+ Clone este repositório
 
-## Expanding the ESLint configuration
+    $ git clone https://github.com/pedrinho81/infleet-frontend-test.git
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+  Vá até a pasta do projeto
 
-- Configure the top-level `parserOptions` property like this:
+    $ cd infleet-frontend-test
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+  Instale as dependências
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+    $npm i
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
+   Inicie o projeto
 
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
-```
+    $ npm run dev
+
+### 🧪 Testes 
+    $ npm run test:ui 
+    (abrirá a interface em uma nova página)
+  ou
+  
+    $ npm run test 
+    (rodará apenas no prompt)
+
+## 📋 Requisitos 
+
+
+## Listagem de Personagens
+
+[X] Implementar paginação na lista de personagens
+[X] Buscar dados através da API pública [  (utilizei a do Rick and morty)](https://rickandmortyapi.com/graphql)
+
+
+## Gerenciamento de Favoritos
+
+[X] Permitir salvar personagens como favoritos
+[X] Permitir remover personagens dos favoritos
+[X] Exibir lista de personagens favoritos
+
+
+## Funcionalidades de Busca
+
+[X] Adicionar campo de busca para encontrar personagens favoritos
+[X] Filtrar lista de favoritos por nome ou outros atributos
+
+
+## Componentes da Interface
+
+[X] Tela principal com lista de personagens
+[X] Área de busca de personagens
+[X] Seção de personagens favoritos
+[X] Botão para adicionar/remover personagem como favorito em cada item da lista
+
+# Requisitos técnicos
+
+[X] Utilize a API pública **GraphQL** do Star Wars
+[X] Utilize o **Tailwind** para estilização dos componentes
+[X] Envie um repositório em Github com o código da aplicação
+[X] Implemente um código que você julgar ter qualidade de ambiente de produção
+
+
