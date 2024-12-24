@@ -14,7 +14,7 @@ export function CharactersList({ characters }: CharactersListProps) {
     );
   }
   return (
-    <section className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 py-6 min-h-50 md:min-h-[56vh]">
+    <section className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 py-6 min-h-50 md:min-h-[56vh] max-w-screen-2xl">
       {characters.map((character) => (
         <Card key={character.name} character={character} />
       ))}
