@@ -1,4 +1,4 @@
-# 🚀 Infleet Frontend Challenge
+# 🚀🚛 Infleet Frontend Challenge
 
 Welcome! This repository contains my solution for the Frontend Challenge.
 
@@ -28,12 +28,10 @@ Run the development server:
 To run the tests with UI:
 
     $ npm run test:ui
-    (this will open the interface in a new page)
 
 Or run the tests in the terminal:
 
     $ npm run test
-    (this will run the tests in the terminal)
 
 
 ## 🛠️ Technologies Used
@@ -45,6 +43,7 @@ The following technologies were used to build this project:
 - **Apollo Client**: For managing GraphQL data fetching and caching.
 - **Tailwind CSS**: For styling components quickly and responsively.
 - **Vite**: For fast development and build process.
+- **Wouter**: For easily and lightly handle navigations.
 - **Vitest**: For running tests and ensuring code quality.
 - **Testing Library**: For testing the components and user interactions.
 - **TypeScript**: For type safety and improved developer experience.
@@ -64,7 +63,7 @@ This project uses the [Rick and Morty GraphQL API](https://rickandmortyapi.com/g
 
 ### Character Listing
 - [X] Implement pagination for the character list.
-- [X] Fetch data using the public API [(I used the Rick and Morty API)](https://rickandmortyapi.com/graphql).
+- [X] Fetch data using the public API.
 
 ### Favorites Management
 - [X] Allow saving characters as favorites.
