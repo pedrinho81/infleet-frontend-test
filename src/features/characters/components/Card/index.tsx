@@ -32,7 +32,7 @@ export function Card({ character }: CardProps) {
       </h2>
       <div className="flex justify-between items-center mt-auto w-full">
         <p className="text-gray-400">
-          Gender: {" "}
+          Gender:{" "}
           <span
             className={`text-sm capitalize ${
               GenderStylesEnum[
@@ -44,7 +44,7 @@ export function Card({ character }: CardProps) {
             {character.gender}
           </span>
         </p>
-        <p className="text-gray-400" >
+        <p className="text-gray-400">
           Life status:{" "}
           <span
             className={`text-sm capitalize rounded-lg p-1 ${
