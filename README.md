@@ -43,6 +43,7 @@ The following technologies were used to build this project:
 - **Apollo Client**: For managing GraphQL data fetching and caching.
 - **Tailwind CSS**: For styling components quickly and responsively.
 - **Vite**: For fast development and build process.
+- **Wouter**: For easily and lightly handle navigations.
 - **Vitest**: For running tests and ensuring code quality.
 - **Testing Library**: For testing the components and user interactions.
 - **TypeScript**: For type safety and improved developer experience.
