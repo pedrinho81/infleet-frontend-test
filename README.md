@@ -1,4 +1,4 @@
-# 🚀 Infleet Frontend Challenge
+# 🚀🚛 Infleet Frontend Challenge
 
 Welcome! This repository contains my solution for the Frontend Challenge.
 
