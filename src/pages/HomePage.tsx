@@ -10,9 +10,9 @@ import { useFilter } from "@/features/characters/hooks/useFilter";
 export function HomePage() {
   useSetPageTitle("Home");
 
-  const { characters, loading, pageInfo } = useCharacters();
+  const { characters, loading, pageInfo, error } = useCharacters();
   const { page, setPage } = useFilter();
-  
+
   if (loading) {
     return <Loading />;
   }
@@ -21,6 +21,9 @@ export function HomePage() {
     <>
       <FavoritesLink />
       <CharactersList characters={characters} />
+      {!!error && <div className="text-center text-droidGold min-h-64 md:min-h-[55.4vh] pt-10 underline uppercase">
+        Something went wrong
+      </div>}
       {!!characters?.length && (
         <Pagination
           pageInfo={pageInfo}
