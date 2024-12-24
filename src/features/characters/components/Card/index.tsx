@@ -21,13 +21,13 @@ export function Card({ character }: CardProps) {
   return (
     <div className="bg-darkSpace border border-gray-700 rounded-lg shadow-md p-6 hover:shadow-lg duration-300 flex flex-col items-center min-h-[400px] transition-transform ease-in-out delay-50 hover:-translate-y-1 hover:scale-105">
       <img
-        src={character.image}
         alt={character.name + " image"}
         className="rounded-full w-40 h-40 mx-auto"
+        src={character.image}
       />
       <ToggleFavoriteButton character={character} />
 
-      <h2 className="text-2xl font-bold  text-center text-white">
+      <h2 className="text-2xl font-bold  text-center text-white" role="name">
         {character.name}
       </h2>
       <div className="flex justify-between items-center mt-auto w-full">
@@ -39,11 +39,12 @@ export function Card({ character }: CardProps) {
                 character.gender as keyof typeof GenderStylesEnum
               ]
             }`}
+            role="gender"
           >
             {character.gender}
           </span>
         </p>
-        <p className="text-gray-400">
+        <p className="text-gray-400" >
           Life status:{" "}
           <span
             className={`text-sm capitalize rounded-lg p-1 ${
@@ -51,6 +52,7 @@ export function Card({ character }: CardProps) {
                 character.status as keyof typeof StatusStylesEnum
               ]
             }`}
+            role="status"
           >
             {character.status}
           </span>
