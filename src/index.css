@@ -101,3 +101,27 @@ body {
   }
 }
 
+@keyframes portal-spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.portal-animation {
+  border: 6px solid transparent;
+  border-top: 6px solid #5ce4dc; /* Aqua green, Rick and Morty-themed */
+  border-right: 6px solid #55e6e5; /* Lighter shade for dynamic effect */
+  border-radius: 50%;
+  width: 5rem;
+  height: 5rem;
+  animation: portal-spin 1.5s linear infinite;
+  box-shadow: 0 0 20px rgba(85, 230, 229, 0.5), 0 0 40px rgba(85, 230, 229, 0.4);
+}
+
+.rick-morty-text {
+  font-family: 'Comic Sans MS', sans-serif; /* Playful, thematic font */
+  text-shadow: 1px 1px 10px #5ce4dc, 2px 2px 15px #55e6e5; /* Glow effect */
+}
