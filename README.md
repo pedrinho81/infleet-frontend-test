@@ -1,79 +1,82 @@
-# 🚀 Infleet Front end challenge
+# 🚀 Infleet Frontend Challenge
 
-Bem-vindo! Este repositório contém minha solução para o Desafio Frontend.
-![Protótipo](/public/screenshot.png)
+Welcome! This repository contains my solution for the Frontend Challenge.
 
-## 🖥️ Instalação  
+![Desktop Prototype](/public/prototypeDesktop.png)
+![Mobile Prototype](/public/prototypeMobile.png)
 
- Clone este repositório
+## 🖥️ Installation  
+
+Clone this repository:
 
     $ git clone https://github.com/pedrinho81/infleet-frontend-test.git
 
-  Vá até a pasta do projeto
+Navigate to the project folder:
 
     $ cd infleet-frontend-test
 
-  Instale as dependências
+Install the dependencies:
 
-    $npm i
+    $ npm install
 
-   Inicie o projeto
+Run the development server:
 
     $ npm run dev
 
-### 🧪 Testes 
-    $ npm run test:ui 
-    (abrirá a interface em uma nova página)
-  ou
-  
-    $ npm run test 
-    (rodará apenas no prompt)
+### 🧪 Tests
 
-## 📋 Requisitos 
+To run the tests with UI:
 
+    $ npm run test:ui
+    (this will open the interface in a new page)
 
-## Listagem de Personagens
-- [X] Implementar paginação na lista de personagens
-- [X] Buscar dados através da API pública [  (utilizei a do Rick and morty)](https://rickandmortyapi.com/graphql)
+Or run the tests in the terminal:
+
+    $ npm run test
+    (this will run the tests in the terminal)
 
 
+## 🛠️ Technologies Used
 
-## Gerenciamento de Favoritos
+The following technologies were used to build this project:
 
-- [X] Permitir salvar personagens como favoritos
+- **React.js**: For building the user interface.
+- **GraphQL**: For querying data from an external API (Rick and Morty API).
+- **Apollo Client**: For managing GraphQL data fetching and caching.
+- **Tailwind CSS**: For styling components quickly and responsively.
+- **Vite**: For fast development and build process.
+- **Vitest**: For running tests and ensuring code quality.
+- **Testing Library**: For testing the components and user interactions.
+- **TypeScript**: For type safety and improved developer experience.
 
-- [X] Permitir remover personagens dos favoritos
+## 📡 API
 
-- [X] Exibir lista de personagens favoritos
+This project uses the [Rick and Morty GraphQL API](https://rickandmortyapi.com/graphql) to fetch character data. Ensure you have internet access to connect to the API.
 
+## 🎯 Technical Requirements
 
+- [X] Use the public **GraphQL** API from Star Wars.
+- [X] Use **Tailwind CSS** for component styling.
+- [X] Submit the repository via GitHub with your solution.
+- [X] Write production-quality code.
 
-## Funcionalidades de Busca
+## 📋 Requirements
 
-- [X] Adicionar campo de busca para encontrar personagens favoritos
+### Character Listing
+- [X] Implement pagination for the character list.
+- [X] Fetch data using the public API [(I used the Rick and Morty API)](https://rickandmortyapi.com/graphql).
 
-- [X] Filtrar lista de favoritos por nome ou outros atributos
+### Favorites Management
+- [X] Allow saving characters as favorites.
+- [X] Allow removing characters from favorites.
+- [X] Display the list of favorite characters.
 
+### Search Functionality
+- [X] Add a search field to find favorite characters.
+- [X] Filter the favorites list by name or other attributes.
 
-
-
-## Componentes da Interface
-
-- [X] Tela principal com lista de personagens
-- [X] Área de busca de personagens
-
-- [X] Seção de personagens favoritos
-
-- [X] Botão para adicionar/remover personagem como favorito em cada item da lista
-
-
-# Requisitos técnicos
-
-- [X] Utilize a API pública **GraphQL** do Star Wars
-- [X] Utilize o **Tailwind** para estilização dos componentes
-- [X] Envie um repositório em Github com o código da aplicação
-- [X] Implemente um código que você julgar ter qualidade de ambiente de produção
-
-
-
-
+### Interface Components
+- [X] Main screen with character list.
+- [X] Search area for characters.
+- [X] Section for favorite characters.
+- [X] Button to add/remove character from favorites in each list item.
