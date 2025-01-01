@@ -1,4 +1,4 @@
-import React, { createContext, useState, useEffect, useMemo } from "react";
+import React, { createContext, useState, useMemo, useCallback } from "react";
 import { ICharacter } from "@/@types/Character";
 import { useFilter } from "@/features/characters/hooks/useFilter";
 import { filterCharacters } from "@/features/characters/utils/filterCharacters";
@@ -18,14 +18,16 @@ export const FavoritesContext = createContext<FavoritesContextType | undefined>(
 export const FavoritesProvider: React.FC<{ children: React.ReactNode }> = ({
   children,
 }) => {
-  const [favorites, setFavorites] = useState<ICharacter[]>([]);
-
-  useEffect(() => {
+  const [favorites, setFavorites] = useState<ICharacter[]>(() => {
     const savedFavorites = localStorage.getItem(LocalStorageFavoritesKey);
     if (savedFavorites) {
-      setFavorites(JSON.parse(savedFavorites));
+      return JSON.parse(savedFavorites) as unknown as ICharacter[];
     }
-  }, []);
+    return [];
+  });
+  const isFavorite = useCallback((character: ICharacter) => {
+    return favorites.some((fav) => fav.id === character.id);
+  }, [favorites]);
 
   const saveToLocalStorage = (favorites: ICharacter[]) => {
     localStorage.setItem(LocalStorageFavoritesKey, JSON.stringify(favorites));
@@ -41,9 +43,6 @@ export const FavoritesProvider: React.FC<{ children: React.ReactNode }> = ({
     saveToLocalStorage(updatedFavorites);
   };
 
-  const isFavorite = (character: ICharacter) =>
-    favorites.some((fav) => fav.id === character.id);
-
   const { debouncedSearch, status, gender } = useFilter();
 
   const filteredFavorites = useMemo(() => {
@@ -53,6 +52,7 @@ export const FavoritesProvider: React.FC<{ children: React.ReactNode }> = ({
       gender,
     });
   }, [debouncedSearch, status, gender, favorites]);
+  
 
   return (
     <FavoritesContext.Provider
